@@ -1,31 +1,16 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        return sorting (s, t);
-    }
-    public boolean sorting (String s, String t){
-        if( s.length()!= t.length()){
+        if (s.length() != t.length()) {
             return false;
         }
-        char [] sSort = s.toCharArray();
-        char [] tSort = t.toCharArray(); 
 
-        Arrays.sort(sSort);
-        Arrays.sort(tSort);
-
-        return Arrays.equals(sSort, tSort);
-
-    }
-
-    public boolean mapping (String s, String t){
-        if(s.length()!= t.length()){
-            return false;
+        HashMap<Character, Integer> countS = new HashMap<>();
+        HashMap<Character, Integer> countT = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            countS.put(s.charAt(i), countS.getOrDefault(s.charAt(i), 0) + 1); //ask chatgpt about getOrDefault
+            countT.put(t.charAt(i), countT.getOrDefault(t.charAt(i), 0) + 1);
         }
-        HashMap<Character, Integer> countS = new HashMap <>();
-        HashMap<Character, Integer> countT = new HashMap <>();
-        for(int i = 0; i<s.length(); i++){
-            countS.put(s.charAt(i), countS.getOrDefault(s.charAt(i),0)+1);
-            countT.put(t.charAt(i), countT.getOrDefault(t.charAt(i),0)+1);
-        }
-        return countS.equals(countT);
-    }
+                return countS.equals(countT);
+
+}
 }
