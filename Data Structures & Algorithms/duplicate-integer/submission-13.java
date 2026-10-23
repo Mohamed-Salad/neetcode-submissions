@@ -1,15 +1,15 @@
 class Solution {
-    public boolean hasDuplicate(int[] nums) {
-       return bruteForce(nums);
-         
-        }
-
+    public boolean hasDuplicate(int[] nums) { return bruteForce(nums);
+   }
     public boolean bruteForce(int [] nums){
-        for(int i= 0 ; i<nums.length; i++)
-        {for(int j= i+1 ;j<nums.length; j++) {
-            if (nums[i]==nums[j]){
-                return true; 
+        int val; 
+        int l= nums.length;
+        for(int key= 0; key<l;key++){
+            for(int dup = key +1;dup<l;dup++){
+                if(nums[dup]==nums[key]){
+                    return true;
+                }
             }
-        }}
-        return false;     }
-}
+        }
+    return false;}
+    }
