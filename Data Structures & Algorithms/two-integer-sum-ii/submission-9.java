@@ -1,21 +1,22 @@
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
-        int end = numbers.length;
-        int pointerZ = end -1;
-        int pointerA = 0;
+        int l = 0;
+        int r = numbers.length -1;
 
-        while(pointerZ>pointerA){
-            int sum = numbers[pointerA] + numbers[pointerZ];
-            if(sum == target){
+        while(l<r){
+           int  sum = numbers[l] + numbers [r];
+            if(sum >target){
+                r--;
+            }
+            else if(sum<target){
+                l++;
+            }
 
-                return new int []{pointerA+1, pointerZ+1};
+            else if(sum == target){
+                 return new int [] {l+1,r+1};
             }
-            else if (sum>target){
-                pointerZ--;
-            }
-            else pointerA++;
+
+            
         }
-
-    return new int []{};
-    }
+    return new int  []{};}
 }
